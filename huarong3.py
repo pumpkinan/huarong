@@ -66,7 +66,7 @@ class HuarongStatus(object):
             self.blocks[n].y = y
     
     def draw(self,cr):
-        for b in self.blocks.itervalues():
+        for b in self.blocks.values():
             b.draw(cr)
 
     def getPattern(self):
@@ -75,7 +75,7 @@ class HuarongStatus(object):
             c[i][0]=c[i][-1]=9
         for j in range(7):
             c[0][j]=c[-1][j]=9
-        for b in self.blocks.itervalues():
+        for b in self.blocks.values():
             for x in range(b.x, b.x+b.width):
                 for y in range(b.y, b.y+b.height):
                     c[x][y]=b.width*2 + b.height

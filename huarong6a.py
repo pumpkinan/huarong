@@ -3,7 +3,7 @@ from __future__ import division, unicode_literals, print_function
 import colorsys
 import cairo
 
-range = xrange
+#range = xrange
 class Block(object):
     def __init__(self, name, height, width):
         self.height = height
@@ -90,7 +90,7 @@ class HuarongStatus(object):
         cr.fill_preserve()
         cr.set_source_rgb(0,0,0)
         cr.stroke()
-        for b in self.blocks.itervalues():
+        for b in self.blocks.values():
             b.draw(cr)
         
 
@@ -100,7 +100,7 @@ class HuarongStatus(object):
             c[i][0]=c[i][-1]=9
         for j in range(7):
             c[0][j]=c[-1][j]=9
-        for b in self.blocks.itervalues():
+        for b in self.blocks.values():
             for x in range(b.x, b.x+b.width):
                 for y in range(b.y, b.y+b.height):
                     c[x][y]=b.width*2 + b.height
@@ -156,7 +156,7 @@ class HuarongStatus(object):
         
     def getAllNextStatus(self):
         all_nss = []
-        for n, b in self.blocks.iteritems():
+        for n, b in self.blocks.items():
             nss = self.getNextStatus(n)
             if b.width==1 or b.height==1:
                 another_step = []

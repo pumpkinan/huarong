@@ -66,7 +66,7 @@ class HuarongStatus(object):
             self.blocks[n].y = y
     
     def draw(self,cr):
-        for b in self.blocks.itervalues():
+        for b in self.blocks.values():
             b.draw(cr)
 
     
